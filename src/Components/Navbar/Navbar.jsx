@@ -1,7 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [userPic, setUserPic] = useState('');
+  const[navbarModel,setNavbarModel]=useState(false);
+  const handleProfileClick = () => {
+    setNavbarModel(!navbarModel);
+  };
+
   return (
     <nav className="navbar">
       
@@ -51,10 +57,23 @@ const Navbar = () => {
           alt="Notifications" 
         />
         <img 
+          src={userPic || "https://placehold.co/32x32/cccccc/ffffff?text=U"}
           className="user-profile" 
-          src="https://placehold.co/32x32/cccccc/ffffff?text=U" 
-          alt="User Profile" 
+          alt="User Profile"
+          onClick={() => setNavbarModel(!navbarModel)} 
         />
+        {navbarModel &&
+        <div className='navbar-model'>
+          <div className='navbar-model-option'>
+            Profile
+            </div>
+            <div className='navbar-model-option'>
+            Logout
+            </div>
+            <div className='navbar-model-option'>
+            Login
+            </div>
+        </div> }
       </div>
 
     </nav>

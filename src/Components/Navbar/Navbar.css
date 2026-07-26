@@ -141,3 +141,17 @@
     display: none;
   }
 }
+.navbar-model{
+  position:absolute;
+  top:50px;
+  width: 100%;
+  z-index: 20;
+}
+.navbar-model-option{
+  padding:10px;
+  background-color: #706565;
+  cursor:pointer;
+  &:hover{
+    background-color: #5e5d5d;
+  }
+}
