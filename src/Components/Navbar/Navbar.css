@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 24px;
-  background-color: #ffffff;
+  background-color: #0f0f0f; /* Changed to dark mode background */
+  color: #f1f1f1; /* Added light text color */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -23,16 +24,20 @@
   cursor: pointer;
   border-radius: 50%;
   padding: 8px;
+  color: #f1f1f1; /* Ensures icon fonts are light */
 }
 
 .menu-icon:hover {
-  background-color: #f2f2f2;
+  background-color: #272727; /* Dark mode hover state */
 }
 
 .logo {
   cursor: pointer;
   height: 20px;
   object-fit: contain;
+  /* If your logo image is black, this filter turns it white for dark mode. 
+     Remove this line if you are already using a white logo. */
+  filter: invert(1) brightness(2); 
 }
 
 /* Middle Section */
@@ -40,7 +45,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  flex: 0 1 728px; /* Allows the search bar to grow but caps it at 728px */
+  flex: 0 1 728px; 
   min-width: 0;
 }
 
@@ -48,16 +53,16 @@
   display: flex;
   align-items: center;
   flex: 1;
-  border: 1px solid #cccccc;
+  border: 1px solid #303030; /* Darkened border */
   border-radius: 40px;
   overflow: hidden;
   height: 40px;
-  background-color: #ffffff;
+  background-color: #121212; /* Darker search input background */
 }
 
 .search-box:focus-within {
-  border: 1px solid #1c62b9; /* YouTube blue focus state */
-  margin-left: -1px; /* Prevents layout shift from border change */
+  border: 1px solid #3ea6ff; /* Slightly lighter blue for dark mode visibility */
+  margin-left: -1px; 
 }
 
 .search-box input {
@@ -67,15 +72,21 @@
   padding: 0 16px;
   font-size: 16px;
   background-color: transparent;
+  color: #f1f1f1; /* White text for typed queries */
   width: 100%;
+}
+
+.search-box input::placeholder {
+  color: #aaaaaa; /* Added lighter placeholder text for contrast */
 }
 
 .search-btn {
   width: 64px;
   height: 100%;
   border: none;
-  border-left: 1px solid #cccccc;
-  background-color: #f8f8f8;
+  border-left: 1px solid #303030; /* Darkened border */
+  background-color: #222222; /* Dark search button */
+  color: #f1f1f1; /* Light icon */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -83,7 +94,7 @@
 }
 
 .search-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #303030;
 }
 
 .mic-btn {
@@ -91,7 +102,8 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: #f8f8f8;
+  background-color: #181818; /* Dark mic background */
+  color: #f1f1f1; /* Light icon */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -99,7 +111,7 @@
 }
 
 .mic-btn:hover {
-  background-color: #e5e5e5;
+  background-color: #303030;
 }
 
 /* Right Section */
@@ -113,10 +125,11 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
+  color: #f1f1f1; /* Light icons */
 }
 
 .nav-right .icon:hover {
-  background-color: #f2f2f2;
+  background-color: #272727;
 }
 
 .user-profile {
@@ -134,24 +147,30 @@
   }
   
   .search-box {
-    display: none; /* YouTube hides the full search bar on mobile */
+    display: none; 
   }
 
   .mic-btn {
     display: none;
   }
 }
-.navbar-model{
-  position:absolute;
-  top:50px;
+
+/* Modal/Dropdown Menu */
+.navbar-model {
+  position: absolute;
+  top: 50px;
   width: 100%;
   z-index: 20;
 }
-.navbar-model-option{
-  padding:10px;
-  background-color: #706565;
-  cursor:pointer;
-  &:hover{
-    background-color: #5e5d5d;
-  }
+
+.navbar-model-option {
+  padding: 10px;
+  background-color: #212121; /* Dark background */
+  color: #f1f1f1; /* Light text */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-model-option:hover {
+  background-color: #3d3d3d; /* Lighter dark hover state */
 }

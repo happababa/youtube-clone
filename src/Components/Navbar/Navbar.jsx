@@ -1,12 +1,14 @@
 import React,{useState} from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({onSidebarToggle}) => {
+
   const [userPic, setUserPic] = useState('');
   const[navbarModel,setNavbarModel]=useState(false);
   const handleProfileClick = () => {
     setNavbarModel(!navbarModel);
   };
+  
 
   return (
     <nav className="navbar">
@@ -14,6 +16,7 @@ const Navbar = () => {
       {/* Left Section: Menu & Logo */}
       <div className="nav-left">
         <img 
+          onClick={onSidebarToggle}
           className="menu-icon" 
           src="https://placehold.co/24x24/transparent/333333?text=☰" 
           alt="Menu" 
