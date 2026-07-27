@@ -1,0 +1,134 @@
+/* Base container holding the grid */
+.youtube-grid-container {
+  padding: 24px;
+  background-color: #0f0f0f; /* YouTube Dark Mode Background */
+  min-height: calc(100vh - 56px); /* Adjust for navbar height */
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #f1f1f1;
+  transition: margin-left 0.2s ease-in-out;
+}
+.youtube-grid-container.sidebar-closed {
+  margin-left: 0px; 
+}
+.youtube-grid-container.sidebar-open {
+  margin-left: 240px; 
+}
+/* The Grid itself */
+.youtube-grid {
+  display: grid;
+  /* Automatically fill the row with columns minimum 300px wide */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px 16px;
+}
+
+/* Individual Video Card */
+.video-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Thumbnail Section */
+.thumbnail-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background-color: #272727; /* Placeholder color before image loads */
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.thumbnail-container:hover .thumbnail {
+  /* Very subtle zoom on hover, matching some YT platforms */
+  transform: scale(1.02); 
+}
+
+.duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 3px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Details Section (Avatar + Text) */
+.video-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-right: 24px;
+}
+
+.channel-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #3f3f3f;
+  margin-top: 2px; /* Align slightly down with the first line of the title */
+}
+
+.video-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Video Title with 2-line ellipsis truncation */
+.video-title {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #f1f1f1;
+  /* Truncate text after 2 lines */
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Metadata formatting (Channel Name, Views, Date) */
+.channel-name,
+.video-meta {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #aaaaaa;
+}
+
+.channel-name {
+  margin-bottom: 2px;
+  transition: color 0.1s ease;
+}
+
+.channel-name:hover {
+  color: #f1f1f1;
+}
+
+/* Small adjustments for mobile viewing */
+@media (max-width: 768px) {
+  /* On mobile, sidebars are usually absolute overlays, so we don't shift the grid */
+  .youtube-grid-container.sidebar-closed,
+  .youtube-grid-container.sidebar-open {
+    margin-left: 0;
+  }
+}

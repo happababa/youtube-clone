@@ -1,7 +1,8 @@
 import React,{ useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
-import Home from './Pages/Home/Home';
+import Sidebar from './Components/Sidebar/Sidebar';
+import YoutubeGrid from './Components/HomePage/HomaPage';
 
 function App() {
   const[isSidebar,setIsSidebar]=useState(false);
@@ -13,7 +14,9 @@ function App() {
   return (
     <div className="App">
       <Navbar onSidebarToggle={handleSidebarToggle} />
-      {isSidebar && <Home />}
+      {isSidebar && <Sidebar />}
+      <YoutubeGrid isSidebarOpen={isSidebar} />
+
     </div>
   )
 }
